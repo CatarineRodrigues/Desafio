@@ -79,9 +79,11 @@ public class Desafio {
             } else if (opcaoMenu == 4){
                 System.out.println("4 - Imposto devido de cada mês");
                 for(int i=0; i < salarios.length; i++){
-                    System.out.println("No "+(i+1)+ "º mês o valor devido é de R$: ");
+                    System.out.println("No "+(i+1)+"º mês o valor devido é de R$: ");
+
                     if(salarios[i] <= 2000.00){
                         System.out.println("Isento do pagamento de imposto.");
+
                     } else if (salarios[i] >= 2001.00 & salarios[i] <= 3000.00){
                         double imposto = salarios[i] * 8/100;
                         System.out.println(imposto);
@@ -101,7 +103,8 @@ public class Desafio {
 
             } else if(opcaoMenu == 5){
                 System.out.println("5 - Sair do sistema");
-                System.exit(0);
+                opcao5();
+
             } else {
                 System.out.println("Número não reconhecido");
             }
@@ -111,5 +114,9 @@ public class Desafio {
     private static String opcao2(String[] usuario) {
         String cadastro = "Nome cadastrado: "+usuario[0]+"\nProfissão cadastrada: "+usuario[1];
         return cadastro;
+    }
+
+    private static void opcao5(){
+        System.exit(0);
     }
 }
