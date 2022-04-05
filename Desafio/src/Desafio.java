@@ -79,19 +79,20 @@ public class Desafio {
             } else if (opcaoMenu == 4){
                 System.out.println("4 - Imposto devido de cada mês");
                 for(int i=0; i < salarios.length; i++){
+                    System.out.println("No "+(i+1)+ "º mês o valor devido é de R$: ");
                     if(salarios[i] <= 2000.00){
                         System.out.println("Isento do pagamento de imposto.");
                     } else if (salarios[i] >= 2001.00 & salarios[i] <= 3000.00){
                         double imposto = salarios[i] * 8/100;
-                        System.out.println("O imposto devido é de R$ "+imposto);
+                        System.out.println(imposto);
                         
                     } else if (salarios[i] >= 3001.00 & salarios[i] <= 4500.00){
                         double imposto = salarios[i] * 18/100;
-                        System.out.println("O imposto devido é de R$ "+imposto);
+                        System.out.println(imposto);
 
                     } else if (salarios[i] > 4500.00){
                         double imposto = salarios[i] * 28/100;
-                        System.out.println("O imposto devido é de R$ "+imposto);
+                        System.out.println(imposto);
 
                     } else {
                         System.out.println("Informação inválida");
