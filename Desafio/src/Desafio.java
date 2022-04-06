@@ -1,4 +1,4 @@
-/*Desafio
+/* Desafio
 
 Em um país chamado SimCity existe o calculo de imposto onde todos os habitantes devem paga-lo
 em dia, porém ainda não existe um sistema disponível em SimCity para ajuda-los a calcular os 
@@ -41,7 +41,6 @@ public class Desafio {
         double salarios[] = new double[12];
         
         // FAZER UM MENU
-
         for(int a=0; a<100; a++){
         System.out.println("------------------------------------");
         System.out.println("Bem Vindo ao novo sistema de SimCity");
@@ -56,13 +55,7 @@ public class Desafio {
         int opcaoMenu = leitor.nextInt();
 
             if (opcaoMenu == 1){
-                // rodar
-                System.out.println("1 - Cadastrar nome do habitante e sua profissão ");
-                System.out.println("Insira o seu nome: ");
-                usuario[0] = leitor.next();
-                System.out.println("Insira a sua profissão: ");
-                usuario[1] = leitor.next();
-                System.out.println("Usuário cadastrado");
+                opcao1(usuario);
                 
             } else if (opcaoMenu == 2){
                 System.out.println("2 - Mostrar informações cadastradas de um habitante");
@@ -77,46 +70,56 @@ public class Desafio {
                 System.out.println("Salários cadastrados");
 
             } else if (opcaoMenu == 4){
-                System.out.println("4 - Imposto devido de cada mês");
-                for(int i=0; i < salarios.length; i++){
-                    System.out.println("No "+(i+1)+"º mês o valor devido é de R$: ");
-
-                    if(salarios[i] <= 2000.00){
-                        System.out.println("Isento do pagamento de imposto.");
-
-                    } else if (salarios[i] >= 2001.00 & salarios[i] <= 3000.00){
-                        double imposto = salarios[i] * 8/100;
-                        System.out.println(imposto);
-                        
-                    } else if (salarios[i] >= 3001.00 & salarios[i] <= 4500.00){
-                        double imposto = salarios[i] * 18/100;
-                        System.out.println(imposto);
-
-                    } else if (salarios[i] > 4500.00){
-                        double imposto = salarios[i] * 28/100;
-                        System.out.println(imposto);
-
-                    } else {
-                        System.out.println("Informação inválida");
-                    }
-                }
-
+                opcao4(salarios);
+                
             } else if(opcaoMenu == 5){
                 System.out.println("5 - Sair do sistema");
-                opcao5();
+                System.exit(0);
 
             } else {
                 System.out.println("Número não reconhecido");
             }
-            }
+        }
     }
-    
+
+    private static void opcao1(String[] usuario){
+        Scanner cs = new Scanner(System.in);
+        System.out.println("1 - Cadastrar nome do habitante e sua profissão ");
+        System.out.println("Insira o seu nome: ");
+        usuario[0] = cs.nextLine();
+        System.out.println("Insira a sua profissão: ");
+        usuario[1] = cs.nextLine();
+        System.out.println("Usuário cadastrado");
+    }
+
     private static String opcao2(String[] usuario) {
         String cadastro = "Nome cadastrado: "+usuario[0]+"\nProfissão cadastrada: "+usuario[1];
         return cadastro;
     }
 
-    private static void opcao5(){
-        System.exit(0);
+    private static void opcao4(double[] salarios) {
+        System.out.println("4 - Imposto devido de cada mês");
+        for(int i=0; i < salarios.length; i++){
+            System.out.println("No "+(i+1)+"º mês o valor devido é de R$: ");
+
+            if(salarios[i] <= 2000.00){
+                System.out.println("Isento do pagamento de imposto.");
+
+            } else if (salarios[i] >= 2001.00 & salarios[i] <= 3000.00){
+                double imposto = salarios[i] * 8/100;
+                System.out.println(imposto);
+                        
+            } else if (salarios[i] >= 3001.00 & salarios[i] <= 4500.00){
+                double imposto = salarios[i] * 18/100;
+                System.out.println(imposto);
+
+            } else if (salarios[i] > 4500.00){
+                double imposto = salarios[i] * 28/100;
+                System.out.println(imposto);
+
+            } else {
+                System.out.println("Informação inválida");
+            }
+        }
     }
 }
